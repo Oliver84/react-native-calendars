@@ -100,8 +100,9 @@ class Day extends Component {
   }
 
   render() {
-    const containerStyle = [this.style.base];
-    const textStyle = [this.style.text];
+    const { styleSheet } = this.props;
+    const containerStyle = [this.style.base, styleSheet.dayInteractive];
+    const textStyle = [this.style.text, styleSheet.textInteractive];
     let leftFillerStyle = {};
     let rightFillerStyle = {};
     let fillers;
@@ -168,8 +169,8 @@ class Day extends Component {
 
       fillers = (
         <View style={this.style.fillers}>
-          <View style={[this.style.leftFiller, leftFillerStyle]}/>
-          <View style={[this.style.rightFiller, rightFillerStyle]}/>
+          <View style={[this.style.leftFiller, leftFillerStyle, styleSheet.leftFillerInteractive]}/>
+          <View style={[this.style.rightFiller, rightFillerStyle, styleSheet.rightFillerInteractive]}/>
         </View>
       );
     }
